@@ -9,7 +9,9 @@ I used 200-300 image samples for each class and trained the model, then I breifl
 
 I exported the model and saved it locally, then added it to my GitHub repo and pulled the changes to the project folder through VSCode
 
+Following this, I used a Model Testing File to test that the data was correctly stored and all the necessary files, packages and libraries were installed correctly and in the right place
 
+After a quick reconfigure of the folders and installed libraries, I wrote the code that would store the users and the computers choices during the game
 
 
 
