@@ -50,38 +50,32 @@ class rockpaperscissors:
 
     def get_winner(self, computer_choice, user_choice): # Function to take the choices of the user and computer and return the result of the game
 
-        print(x.get_computer_choice())
-        print(x.get_user_choice(), 10)
+        x.get_computer_choice()
+        x.get_user_choice()
 
-    # Tie 
+    # If the result is a tie 
         if self.computer_choice == self.user_choice:
-            print("Its a tie!")
+            print("It is a tie!")
         
 
-    # Figure out who won
+    # Code to figure out who won
         # -- Rock & Paper 
         elif self.computer_choice == self.rock and self.user_choice == self.paper:
             self.winner = "User"
-            return self.winner
         elif self.user_choice == self.rock and self.computer_choice == self.paper:
             self.winner = "Computer"
-            return self.winner
         # -- Paper & Scissors
         elif self.computer_choice == self.paper and self.user_choice == self.scissors:
             self.winner = "User"
-            return self.winner
         elif self.user_choice == self.paper and self.computer_choice == self.scissors:
             self.winner = "Computer"
-            return self.winner
         # -- Scissors & Rock 
         elif self.computer_choice == self.scissors and self.user_choice == self.rock:
             self.winner = "User"
-            return self.winner
         elif self.user_choice == self.scissors and self.computer_choice == self.rock:
             self.winner = "Computer"
-            return self.winner
-
-        return self.winner
+    # Returns the winner 
+        return print(self.winner)
 
         
     """ ----- What was wrong with this ? -----
