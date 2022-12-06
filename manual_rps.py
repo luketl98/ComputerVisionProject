@@ -16,17 +16,17 @@ class rockpaperscissors:
         game_options = ["Rock", "Paper", "Scissors"]
         # randomly selects choice from list and assigns it to variable
         self.computer_choice = random.choice(game_options)
-        # prints the computers choice
-        print(f"\ngetcompchoice: {self.computer_choice}")
+        # prints the computers choice ------                                            delete
+        # print(f"\ngetcompchoice: {self.computer_choice}") -------                     delete
         # returns the computers choice
         return self.computer_choice
 
     def get_user_choice(self): # Function to receive and check the users choice
         # Asks the user to input a letter based on what choice they want to make and converts it to lowercase
         self.user_choice = input("\nPlease choose; Rock, Paper or Scissors by typing R, P or S, respectively: ").lower() 
-        # Assigns users input to either rock paper or scissors
-        # and prints the users choice, and returns the users choice
 
+        # Assigns users input to either rock paper or scissors
+        # then prints the users choice, and returns the users choice
         if self.user_choice == "r":
             self.user_choice = self.rock
             print(f"\nYou chose: {self.user_choice}\n")
@@ -53,29 +53,34 @@ class rockpaperscissors:
         x.get_computer_choice()
         x.get_user_choice()
 
+    # prints the computers once the user has chosen
+        print(f"The Computer chose {self.computer_choice}")
+
     # If the result is a tie 
         if self.computer_choice == self.user_choice:
-            print("It is a tie!")
-        
-
-    # Code to figure out who won
-        # -- Rock & Paper 
-        elif self.computer_choice == self.rock and self.user_choice == self.paper:
-            self.winner = "User"
-        elif self.user_choice == self.rock and self.computer_choice == self.paper:
-            self.winner = "Computer"
-        # -- Paper & Scissors
-        elif self.computer_choice == self.paper and self.user_choice == self.scissors:
-            self.winner = "User"
-        elif self.user_choice == self.paper and self.computer_choice == self.scissors:
-            self.winner = "Computer"
-        # -- Scissors & Rock 
-        elif self.computer_choice == self.scissors and self.user_choice == self.rock:
-            self.winner = "User"
-        elif self.user_choice == self.scissors and self.computer_choice == self.rock:
-            self.winner = "Computer"
-    # Returns the winner 
-        return print(self.winner)
+            print("\nIt is a tie!\n")
+        else:
+        # Code to figure out who won
+            # -- Rock & Paper 
+            if self.computer_choice == self.rock and self.user_choice == self.paper:
+                self.winner = "User"
+            elif self.user_choice == self.rock and self.computer_choice == self.paper:
+                self.winner = "Computer"
+            # -- Paper & Scissors
+            elif self.computer_choice == self.paper and self.user_choice == self.scissors:
+                self.winner = "User"
+            elif self.user_choice == self.paper and self.computer_choice == self.scissors:
+                self.winner = "Computer"
+            # -- Scissors & Rock 
+            elif self.computer_choice == self.scissors and self.user_choice == self.rock:
+                self.winner = "User"
+            elif self.user_choice == self.scissors and self.computer_choice == self.rock:
+                self.winner = "Computer"
+        # Returns the winner 
+            if self.winner == "User":
+                return print("\nYou win!\n")
+            elif self.winner == "Computer":
+                return print("\nYou lose\n")
 
         
     """ ----- What was wrong with this ? -----
