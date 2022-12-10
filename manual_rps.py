@@ -16,8 +16,6 @@ class rockpaperscissors:
         game_options = ["Rock", "Paper", "Scissors"]
         # randomly selects choice from list and assigns it to variable
         self.computer_choice = random.choice(game_options)
-        # prints the computers choice ------                                            delete
-        # print(f"\ngetcompchoice: {self.computer_choice}") -------                     delete
         # returns the computers choice
         return self.computer_choice
 
@@ -45,13 +43,10 @@ class rockpaperscissors:
         # asks the user to re-enter their input if it was not either "R", "P" or "S"
         else:
             print("\nPlease enter 'R' for Rock, 'P' for Paper or 'S' for Scissors")
-            x.get_user_choice()
+            rps.get_user_choice()
         
 
     def get_winner(self, computer_choice, user_choice): # Function to take the choices of the user and computer and return the result of the game
-
-        x.get_computer_choice()
-        x.get_user_choice()
 
     # prints the computers once the user has chosen
         print(f"The Computer chose {self.computer_choice}")
@@ -82,6 +77,10 @@ class rockpaperscissors:
             elif self.winner == "Computer":
                 return print("\nYou lose\n")
 
+    def play(self): # function to call all other functions and in doing so, play the game of rock, paper, scissors
+        rps.get_computer_choice()
+        rps.get_user_choice()
+        rps.get_winner(rps.computer_choice, rps.user_choice)
         
     """ ----- What was wrong with this ? -----
     # user wins -- 
@@ -117,5 +116,5 @@ class rockpaperscissors:
         pass
     """
 
-x = rockpaperscissors()
-x.get_winner(x.computer_choice, x.user_choice)
+rps = rockpaperscissors()
+rps.play()
