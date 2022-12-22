@@ -27,6 +27,10 @@ I added a function called 'play' to run all three functions; get_computer_choice
 
 So now the 'play' function is called which in turn calls the three other functions and begins the game. It asks the user for their choice and generates the computers choice, then prints boths choices and tells the user who won the game.
 
+**Using the Camera to play**
+I created a new file called 'camera_rps.py' where I will write the code that will allow the user to use the output of the computer vision system to play the game.
+
+
 
 ----------
 
