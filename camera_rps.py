@@ -14,6 +14,14 @@ def get_prediction():
         normalized_image = (image_np.astype(np.float32) / 127.0) - 1 # Normalize the image
         data[0] = normalized_image
         prediction = model.predict(data)
+
+        # Countdown
+        max_time = 3
+        start_time = time.time()
+        while (time.time() - start_time) < max_time:
+            print(time.time())
+        pass
+
         cv2.imshow('frame', frame)
         print(prediction)
 
@@ -59,6 +67,7 @@ def countdown():
     start_time = time.time()
     while (time.time() - start_time) < max_time:
         get_prediction()
+        print(time.time())
     pass
 
 countdown()
