@@ -14,6 +14,23 @@ while True:
     prediction = model.predict(data)
     cv2.imshow('frame', frame)
     print(prediction)
+
+    result = np.argmax(prediction)
+    print(result)
+
+    if result == 0:
+        result = 'Rock'
+        print(result)
+    elif result == 1:
+        result = 'Paper'
+        print(result)
+    elif result == 2:
+        result = 'Scissors'
+        print(result)
+    elif result == 3:
+        result = 'Nothing'
+        print(result)
+
     # Press q to close the window
     if cv2.waitKey(1) & 0xFF == ord('q'):
         break
