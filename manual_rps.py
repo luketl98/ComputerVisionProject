@@ -1,4 +1,6 @@
 import random
+import camera_rps
+
 
 class rockpaperscissors:
     # defines variables to the possible game choices and assigns releavent string to each one
@@ -6,6 +8,7 @@ class rockpaperscissors:
         self.rock = "Rock"
         self.paper = "Paper"
         self.scissors = "Scissors"
+        self.nothing = "Nothing"
         # defines variabels
         self.computer_choice = []
         self.user_choice = []
@@ -19,7 +22,32 @@ class rockpaperscissors:
         # returns the computers choice
         return self.computer_choice
 
-    def get_user_choice(self): # Function to receive and check the users choice
+    def get_user_choice(self): 
+        self.user_choice = camera_rps.get_prediction()
+
+        if self.user_choice == "Rock":
+            self.user_choice = self.rock
+            print(f"\nYou chose: {self.user_choice}\n")
+            return self.user_choice
+
+        elif self.user_choice == "Paper":
+            self.user_choice = self.paper
+            print(f"\nYou chose: {self.user_choice}\n")
+            return self.user_choice
+
+        elif self.user_choice == "Scissors":
+            self.user_choice = self.scissors
+            print(f"\nYou chose: {self.user_choice}\n")
+            return self.user_choice
+
+        elif self.user_choice == "Nothing":
+            self.user_choice = self.nothing
+            print(f"\nYou chose: {self.nothing}, please try again!\n")
+            return self.user_choice
+
+        
+        """ MANUAL VERSION OF RPS -- USER INPUTS VIA KEYBOARD
+        # Function to receive and check the users choice
         # Asks the user to input a letter based on what choice they want to make and converts it to lowercase
         self.user_choice = input("\nPlease choose; Rock, Paper or Scissors by typing R, P or S, respectively: ").lower() 
 
@@ -44,7 +72,7 @@ class rockpaperscissors:
         else:
             print("\nPlease enter 'R' for Rock, 'P' for Paper or 'S' for Scissors")
             rps.get_user_choice()
-        
+        """
 
     def get_winner(self, computer_choice, user_choice): # Function to take the choices of the user and computer and return the result of the game
 

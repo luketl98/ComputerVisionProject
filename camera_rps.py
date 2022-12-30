@@ -1,6 +1,7 @@
 import cv2
 from keras.models import load_model
 import numpy as np
+import time
 model = load_model('keras_model.h5')
 cap = cv2.VideoCapture(0)
 data = np.ndarray(shape=(1, 224, 224, 3), dtype=np.float32)
@@ -22,16 +23,16 @@ def get_prediction():
 
     # Assign the result
         if result == 0:
-            result = 'Rock'
+            result = "Rock"
             print(result)
         elif result == 1:
-            result = 'Paper'
+            result = "Paper"
             print(result)
         elif result == 2:
-            result = 'Scissors'
+            result = "Scissors"
             print(result)
         elif result == 3:
-            result = 'Nothing'
+            result = "Nothing"
             print(result)
             
         
@@ -49,4 +50,15 @@ def get_prediction():
     print(result)
     # Return the result 
     return result
-    
+
+
+
+def countdown():
+    get_prediction
+    max_time = 3
+    start_time = time.time()
+    while (time.time() - start_time) < max_time:
+        get_prediction()
+    pass
+
+countdown()
