@@ -1,5 +1,5 @@
 import random
-import computerVision.model_copy as model_copy
+import model_copy
 
 
 class rockpaperscissors:
