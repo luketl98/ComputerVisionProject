@@ -65,15 +65,6 @@ def countdown():
         if (time.time() - start_time) >= max_time:
             break
 
-    
-    max_time = 3
-    start_time = time.time()
-    while (time.time() - start_time) < max_time:
-        print(round(start_time - time.time()))
-        if (time.time() - start_time) == 2:
-            print(2)
-            break
-
 
 countdown()
 

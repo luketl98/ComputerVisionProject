@@ -1,32 +1,29 @@
 import time
-"""
-def countdown():
-
-    while countdown > 0:
-        print ('CountDown = ', countdown)
-        if countdown == 3:
-            break
-"""
 
 def timer():
     
     max_time = 4
     start_time = time.time()
-    while (time.time() - start_time) < max_time:
-        # print(round(start_time - time.time())*(-1))
-        if (round(time.time() - start_time)) == 0:
-            print("3")
-        elif (round(time.time() - start_time)) == 1:
-            print("2")
-        elif (round(time.time() - start_time)) == 2:
-            print("1")
-        elif (round(time.time() - start_time)) == 3:
-            print("Go")
-        else:
+    while max_time > 0:
+        difference = time.time() - start_time
+
+        if 1 > difference > 0:
+            print(max_time)
+        
+        if 2 > difference > 1:
+            max_time = 3
+            print(max_time)
+        
+        elif 3 > difference > 2:
+            max_time = 2
+            print(max_time)
+        
+        elif 4 > difference > 3:
+            max_time = 1
+            print(max_time)
+        
+        elif 5 > difference > 4:
+            print('Go')
             break
-
-
-
-
-
+            
 timer()
