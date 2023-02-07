@@ -25,7 +25,7 @@ class rockpaperscissors:
 
 
     def get_user_choice(self): 
-        self.user_choice = model_copy.get_prediction()
+        self.user_choice = model_copy
         print(self.user_choice)
 
         if self.user_choice == "Rock":

@@ -11,9 +11,9 @@ while True:
     image_np = np.array(resized_frame)
     normalized_image = (image_np.astype(np.float32) / 127.0) - 1 # Normalize the image
     data[0] = normalized_image
-    prediction = model.predict(data)
+    prediction = model.predict(data, verbose=0)
     cv2.imshow('frame', frame)
-    print(prediction)
+    # print(prediction)
     # Press q to close the window
     if cv2.waitKey(1) & 0xFF == ord('q'):
         break

@@ -13,47 +13,57 @@ def get_prediction():
         image_np = np.array(resized_frame)
         normalized_image = (image_np.astype(np.float32) / 127.0) - 1 # Normalize the image
         data[0] = normalized_image
-        prediction = model.predict(data)
+        prediction = model.predict(data, verbose=0)
 
-        # Countdown
-        countdown()
+        # Period of time between start of program and start of image capture
 
         cv2.imshow('frame', frame)
-        print(prediction)
 
-    # Find the result using numpy and print
+        # Find the result using numpy
         result = np.argmax(prediction)
-        print(result)
 
-    # Assign the result
+        # Countdown
+        start_time = time.time()
+        while (time.time() - start_time) < 3:
+            print(round((start_time - time.time())*(-1)))
+        
+                
+        # Assign the result
         if result == 0:
-            result = "Rock"
-            print(result)
+            result = 'Rock'
+            # break
         elif result == 1:
             result = "Paper"
-            print(result)
+            # break
         elif result == 2:
             result = "Scissors"
-            print(result)
+            # break
         elif result == 3:
             result = "Nothing"
-            print(result)
-            
-        
+            # break
+
+        # print result
+        # print(result)
+
         # Press q to close the window
         if cv2.waitKey(1) & 0xFF == ord('q'):
             break
-            
-                
+        
+        # Breaks program once 3 second countdown is up
+        elif (time.time() - start_time) > 3:
+            break
+        
     # After the loop release the cap object
     cap.release()
     # Destroy all the windows
     cv2.destroyAllWindows()
 
     # Reprint the result
-    print(result)
+    print("Final result: ", result)
+
     # Return the result 
     return result
+    
 
 
 
@@ -61,12 +71,10 @@ def countdown():
     max_time = 3
     start_time = time.time()
     while (time.time() - start_time) < max_time:
-        print(round(start_time - time.time()))
+        # print(round((start_time - time.time())*(-1)))
         if (time.time() - start_time) >= max_time:
             break
 
-
-countdown()
 
 
 get_prediction()
