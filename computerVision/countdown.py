@@ -1,29 +1,27 @@
+# 3 second Countdown     --------      # print(round((start_time - time.time())*(-1)))
 import time
 
-def timer():
-    
-    max_time = 4
-    start_time = time.time()
-    while max_time > 0:
-        difference = time.time() - start_time
-
-        if 1 > difference > 0:
-            print(max_time)
-        
-        if 2 > difference > 1:
-            max_time = 3
-            print(max_time)
-        
-        elif 3 > difference > 2:
-            max_time = 2
-            print(max_time)
-        
-        elif 4 > difference > 3:
-            max_time = 1
-            print(max_time)
-        
-        elif 5 > difference > 4:
-            print('Go')
-            break
-            
-timer()
+start_time = time.time()
+one = 0
+two = 0
+three = 0
+while (time.time() - start_time) < 3:
+    if one == 1:
+        pass
+    elif round(time.time() - start_time) == 1:
+        print(1)
+        one = 1
+    # ----------------
+    if two == 2:
+        pass
+    elif round(time.time() - start_time) == 2:
+        print(2)
+        two = 2
+    # ----------------
+    if three == 3:
+        pass
+    elif round(time.time() - start_time) == 3:
+        print(3)
+        three = 3
+else:
+    pass

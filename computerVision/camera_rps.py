@@ -19,6 +19,8 @@ class rockpaperscissors:
         self.computer_choice = []
         self.user_choice = []
         self.winner = []
+        self.user_wins = 0
+        self.computer_wins = 0
 
 
     def get_computer_choice(self): # Function to get the computers choice by randomly selecting from list
@@ -30,7 +32,9 @@ class rockpaperscissors:
         return self.computer_choice
 
 
-    def get_user_choice(self): 
+
+    def get_user_choice(self): # Determines the users choice via image capture 
+        # Calls get_prediction and starts image capture to determine users choice
         self.user_choice = rps.get_prediction()
 
         if self.user_choice == 0:
@@ -51,6 +55,7 @@ class rockpaperscissors:
             rps.play()
 
         return self.user_choice
+    # End of get_user_choice()
 
     def get_winner(self, computer_choice, user_choice): # Function to take the choices of the user and computer and return the result of the game
 
@@ -79,20 +84,81 @@ class rockpaperscissors:
                 self.winner = "Computer"
         # Returns the winner 
             if self.winner == "User":
-                return print("\nYou win!\n")
+                print("\nYou win this round!\n")
+                self.user_wins += 1
+                print(f"User wins: {self.user_wins}")
+                print(f"Computer wins: {self.computer_wins}\n")
             elif self.winner == "Computer":
-                return print("\nYou lose\n")
+                print("\nThe Computer wins this round\n")
+                self.computer_wins += 1
+                print(f"User wins: {self.user_wins}")
+                print(f"Computer wins: {self.computer_wins}\n")
+    # End of get_winner()
 
 
     def play(self): # function to call all other functions and in doing so, play the game of rock, paper, scissors
-        rps.get_computer_choice()
-        rps.get_user_choice()
-        rps.get_winner(rps.computer_choice, rps.user_choice)
-        
+        # While loop that runs the game until three rounds have been played 
+        while (self.computer_wins + self.user_wins) < 3:
+            # Asks user if they're ready to play the round
+            input("\nPress Enter to play the round whenever you are ready ").lower
+            
+            # Prints 
+            if self.computer_wins + self.user_wins == 0:
+                pass
+            else:
+                print("\nBest out of three to win the game!")
+
+            # 3 second Countdown before the start of a round
+            start_time = time.time()
+            one = 0
+            two = 0
+            three = 0
+            while (time.time() - start_time) < 3:
+                if one == 1:
+                    pass
+                elif round(time.time() - start_time) == 1:
+                    print(1)
+                    one = 1
+                # ----------------
+                if two == 2:
+                    pass
+                elif round(time.time() - start_time) == 2:
+                    print(2)
+                    two = 2
+                # ----------------
+                if three == 3:
+                    pass
+                elif round(time.time() - start_time) == 3:
+                    print(3)
+                    three = 3
+            else:
+                pass
+            # End of countdown
+
+            # Calls functions to play the game 
+            rps.get_computer_choice()
+            rps.get_user_choice()
+            rps.get_winner(rps.computer_choice, rps.user_choice)
+
+        # Checks whether anyone has won the game yet by accumulating 2 wins and, if so, ends the image capture
+        else:
+            if self.computer_wins == 2:
+                print("You lost this game, the Computer wins!\n")
+                # After the loop release the cap object - Ends image capture 
+                cap.release()
+                # Destroy all the windows - Ends image capture
+                cv2.destroyAllWindows()
+            elif self.user_wins == 2:
+                print("You won the game!\n")
+                # After the loop release the cap object - Ends image capture
+                cap.release()
+                # Destroy all the windows - Ends image capture
+                cv2.destroyAllWindows()
+    # End of play()
 
     def get_prediction(self): # Function to start the image capture and classify results 
 
-        start_time = time.time()  # Time at beginning of program - Used for the countdown within get_prediction function
+        start_time = time.time()  # Time at beginning of program - Used for the countdown below
         
         while True:
             ret, frame = cap.read()
@@ -119,10 +185,10 @@ class rockpaperscissors:
             else:
                 pass
 
-            # Countdown
-            if (time.time() - start_time) < 7:
-                print(round((start_time - time.time())*(-1)))
-            elif (time.time() - start_time) > 7:
+            # Makes the image capture run for 5 seconds before capturing the users choice 
+            if (time.time() - start_time) < 5:
+                pass
+            elif (time.time() - start_time) > 5:
                 break
             else:
                 pass
@@ -130,16 +196,6 @@ class rockpaperscissors:
             # Press q to close the window
             if cv2.waitKey(1) & 0xFF == ord('q'):
                 break
-            
-            
-        # After the loop release the cap object
-        cap.release()
-
-        # Destroy all the windows
-        cv2.destroyAllWindows()
-
-        # Reprint the final result 007
-        # print("Final result: ", result)
 
         # Return the result 
         return result
