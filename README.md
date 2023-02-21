@@ -45,7 +45,11 @@ wrote the code that will allow the user to use the output of the computer vision
 #### get_prediction
 A new function called get_predicition modifies the code from the model_checking_file to include a couple of things. 
 
-First the numpy.argmax function. The data returned by the model is a list of four numbers equating to probabilities of each class(Rock, Paper, Scissors, Nothing) being shown. So the class with the highest value is the class that the model predicts is the one being shown to the camera. The numpy.argmax function takes the list of four and returns the element with the highest value, which will be a number, either 0, 1, 2 or 3. These numbers represent each class, being Rock, Paper, Scissors and Nothing assuming you used this order when making the model on Teachable Machine. I then used if statements to print whatever class that was returned, so the user could check that the model was correctly identifying their choice. I had some issues with the accuracy of the models prediction, where I had to fiddle around with my hands positioning in front of the camera before the model would correctly identify my choice. To resolve this issue slightly I added a 5 second timer, whilst silmultaneously printing the models prediction, to give the user some time to fiddle around with the positioning of their hand and make sure the model gets the prediction right. I will also redo and replace the model I currently have with an improved version later on, again using TeachableMachine but perhaps with more images per class.
+First the numpy.argmax function. The data returned by the model is a list of four numbers equating to probabilities of each class(Rock, Paper, Scissors, Nothing) being shown. So the class with the highest value is the class that the model predicts is the one being shown to the camera. The numpy.argmax function takes the list of four and returns the element with the highest value, which will be a number, either 0, 1, 2 or 3. These numbers represent each class, being Rock, Paper, Scissors and Nothing assuming you used this order when making the model on Teachable Machine. 
+
+I then used if statements to print whatever class that was returned, so the user could check that the model was correctly identifying their choice. I had some issues with the accuracy of the models prediction, where I had to fiddle around with my hands positioning in front of the camera before the model would correctly identify my choice. To resolve this issue slightly I added a 5 second timer, whilst silmultaneously printing the models prediction, to give the user some time to fiddle around with the positioning of their hand and make sure the model gets the prediction right. 
+
+I will also redo and replace the model I currently have with an improved version later on, again using TeachableMachine but probably with more images per class.
 
 #### play()
 Within the play() function there is a countdown that counts to 3 before running the three required functions, this mimics the 3 second countdown you would normally have before revealing your choice when playing a game of Rock, Paper, Scissors. The time.sleep() function could not be used in this instance as 
@@ -57,11 +61,11 @@ At the end of play() the else statement checks if the number of wins accumulated
 
 ## Potential improvements
 
-Certain aspects of the code could be simplified but at possibly at a cost of clarity and readability - This is still something I would like to look at in future though. As an example, the self.rock, self.paper etc. variables could be removed and replaced simply by the numbers returned by the numpy.argmax function, being 0,1,2 and 3. With code related to the four classes being modified and again simplified too.
+Certain aspects of the code could be simplified but at possibly at a cost of clarity and readability - This is still something I would like to look at in future though. As an example, the self.rock, self.paper etc. variables could be removed and replaced simply by the numbers returned by the numpy.argmax function, being 0, 1, 2 and 3. With code related to the four classes being modified and again simplified as well.
 
-The countdown could also be more elegant that it currently is. The print function could be removed entirely which would reduce its length to a couple of lines only. 
+The 3 second countdown could also be more elegant that it currently is. The print function could be removed entirely which would reduce its length to a couple of lines only. 
 
-If the model can be trained to a sufficient standard where it can accurately predict the class chosen by the user, the image capture would not have to be run for 5 seconds nor would the result have to be printed inside  get_prediction(). 
+If the model can be trained to a sufficient standard where it can consistently and accurately predict the class chosen by the user, the image capture would not have to run for 5 seconds nor would the result have to be printed inside get_prediction(), cutting these sections of the function would reduce its size appreciably.
 
 Ideally the image capture popup would contain the printed messages, which could be another feature to add in future too.
 
