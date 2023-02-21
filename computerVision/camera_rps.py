@@ -163,7 +163,7 @@ class rockpaperscissors:
             # Find the result using numpy
             result = np.argmax(prediction)
                     
-            # Assign the result
+            # Print the result
             if result == 0:
                 print("Rock")
             elif result == 1:

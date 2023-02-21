@@ -55,6 +55,15 @@ I also added an input just before the countdown starts, requiring the user to pr
 At the end of play() the else statement checks if the number of wins accumulated by the user and computer has reached 2, in which case the winner will be printed and cap.release() and cv2.destroyAllWindows() will be run to end the image capture. These two functions were originally part of the model_cehcking_file, but were moved to this function so they would only be called once game was completely finished as opposed to at the end of each round.
 
 
+## Potential improvements
+
+Certain aspects of the code could be simplified but at possibly at a cost of clarity and readability - This is still something I would like to look at in future though. As an example, the self.rock, self.paper etc. variables could be removed and replaced simply by the numbers returned by the numpy.argmax function, being 0,1,2 and 3. With code related to the four classes being modified and again simplified too.
+
+The countdown could also be more elegant that it currently is. The print function could be removed entirely which would reduce its length to a couple of lines only. 
+
+If the model can be trained to a sufficient standard where it can accurately predict the class chosen by the user, the image capture would not have to be run for 5 seconds nor would the result have to be printed inside  get_prediction(). 
+
+Ideally the image capture popup would contain the printed messages, which could be another feature to add in future too.
 
 
 
