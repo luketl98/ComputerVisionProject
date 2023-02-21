@@ -1,5 +1,5 @@
 import random
-# --- model_copy.py imports etc. :
+# --- model_copy.py imports :
 import time
 import cv2
 from keras.models import load_model
@@ -36,22 +36,18 @@ class rockpaperscissors:
     def get_user_choice(self): # Determines the users choice via image capture 
         # Calls get_prediction and starts image capture to determine users choice
         self.user_choice = rps.get_prediction()
-
+        # 
         if self.user_choice == 0:
             self.user_choice = self.rock
-            print(f"\nYou chose: {self.user_choice}\n")
-
+            print(f"\nYou chose: Rock\n")
         elif self.user_choice == 1:
             self.user_choice = self.paper
-            print(f"\nYou chose: {self.user_choice}\n")
-
+            print(f"\nYou chose: Paper\n")
         elif self.user_choice == 2:
             self.user_choice = self.scissors
-            print(f"\nYou chose: {self.user_choice}\n")
-
+            print(f"\nYou chose: Scissors\n")
         elif self.user_choice == 3:
-            self.user_choice = self.nothing
-            print(f"\nYou chose: {self.nothing}, please try again!\n")
+            print(f"\nYou chose: Nothing, please try again!\n")
             rps.play()
 
         return self.user_choice
@@ -66,39 +62,33 @@ class rockpaperscissors:
         if self.computer_choice == self.user_choice:
             print("\nIt is a tie!\n")
         else:
-        # Code to figure out who won
+        # If statements to figure out who won
             # -- Rock & Paper 
-            if self.computer_choice == self.rock and self.user_choice == self.paper:
-                self.winner = "User"
-            elif self.user_choice == self.rock and self.computer_choice == self.paper:
-                self.winner = "Computer"
+            if self.computer_choice == self.rock and self.user_choice == self.paper: self.winner = "User"
+            elif self.user_choice == self.rock and self.computer_choice == self.paper: self.winner = "Computer"
             # -- Paper & Scissors
-            elif self.computer_choice == self.paper and self.user_choice == self.scissors:
-                self.winner = "User"
-            elif self.user_choice == self.paper and self.computer_choice == self.scissors:
-                self.winner = "Computer"
+            elif self.computer_choice == self.paper and self.user_choice == self.scissors: self.winner = "User"
+            elif self.user_choice == self.paper and self.computer_choice == self.scissors: self.winner = "Computer"
             # -- Scissors & Rock 
-            elif self.computer_choice == self.scissors and self.user_choice == self.rock:
-                self.winner = "User"
-            elif self.user_choice == self.scissors and self.computer_choice == self.rock:
-                self.winner = "Computer"
+            elif self.computer_choice == self.scissors and self.user_choice == self.rock: self.winner = "User"
+            elif self.user_choice == self.scissors and self.computer_choice == self.rock: self.winner = "Computer"
+            
         # Returns the winner 
             if self.winner == "User":
                 print("\nYou win this round!\n")
                 self.user_wins += 1
-                print(f"User wins: {self.user_wins}")
-                print(f"Computer wins: {self.computer_wins}\n")
             elif self.winner == "Computer":
                 print("\nThe Computer wins this round\n")
                 self.computer_wins += 1
-                print(f"User wins: {self.user_wins}")
-                print(f"Computer wins: {self.computer_wins}\n")
+            # Prints current no. of wins by user and computer
+            print(f"User wins: {self.user_wins}")
+            print(f"Computer wins: {self.computer_wins}\n")
     # End of get_winner()
 
 
     def play(self): # function to call all other functions and in doing so, play the game of rock, paper, scissors
         # While loop that runs the game until three rounds have been played 
-        while (self.computer_wins + self.user_wins) < 3:
+        while self.computer_wins != 2 and self.user_wins != 2:
             # Asks user if they're ready to play the round
             input("\nPress Enter to play the round whenever you are ready ").lower
             

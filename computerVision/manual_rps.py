@@ -1,4 +1,5 @@
 import random
+import time
 
 class rockpaperscissors:
     # defines variables to the possible game choices and assigns releavent string to each one
@@ -7,10 +8,12 @@ class rockpaperscissors:
         self.paper = "Paper"
         self.scissors = "Scissors"
         self.nothing = "Nothing"
-        # defines variabels
+        # defines variables
         self.computer_choice = []
         self.user_choice = []
-        self.winner = [10]
+        self.winner = []
+        self.user_wins = 0
+        self.computer_wins = 0
 
     def get_computer_choice(self): # Function to get the computers choice by randomly selecting from list
         # list containing possible choices
@@ -58,66 +61,49 @@ class rockpaperscissors:
         if self.computer_choice == self.user_choice:
             print("\nIt is a tie!\n")
         else:
-        # Code to figure out who won
+        # If statements to figure out who won
             # -- Rock & Paper 
-            if self.computer_choice == self.rock and self.user_choice == self.paper:
-                self.winner = "User"
-            elif self.user_choice == self.rock and self.computer_choice == self.paper:
-                self.winner = "Computer"
+            if self.computer_choice == self.rock and self.user_choice == self.paper: self.winner = "User"
+            elif self.user_choice == self.rock and self.computer_choice == self.paper: self.winner = "Computer"
             # -- Paper & Scissors
-            elif self.computer_choice == self.paper and self.user_choice == self.scissors:
-                self.winner = "User"
-            elif self.user_choice == self.paper and self.computer_choice == self.scissors:
-                self.winner = "Computer"
+            elif self.computer_choice == self.paper and self.user_choice == self.scissors: self.winner = "User"
+            elif self.user_choice == self.paper and self.computer_choice == self.scissors: self.winner = "Computer"
             # -- Scissors & Rock 
-            elif self.computer_choice == self.scissors and self.user_choice == self.rock:
-                self.winner = "User"
-            elif self.user_choice == self.scissors and self.computer_choice == self.rock:
-                self.winner = "Computer"
+            elif self.computer_choice == self.scissors and self.user_choice == self.rock: self.winner = "User"
+            elif self.user_choice == self.scissors and self.computer_choice == self.rock: self.winner = "Computer"
+
         # Returns the winner 
             if self.winner == "User":
-                return print("\nYou win!\n")
+                print("\nYou win this round!\n")
+                self.user_wins += 1
             elif self.winner == "Computer":
-                return print("\nYou lose\n")
+                print("\nThe Computer wins this round\n")
+                self.computer_wins += 1
+            # Prints current no. of wins by user and computer
+            print(f"User wins: {self.user_wins}")
+            print(f"Computer wins: {self.computer_wins}\n")
+    # End of get_winner()
 
     def play(self): # function to call all other functions and in doing so, play the game of rock, paper, scissors
-        rps.get_computer_choice()
-        rps.get_user_choice()
-        rps.get_winner(rps.computer_choice, rps.user_choice)
-        
-    """ ----- What was wrong with this ? -----
-    # user wins -- 
-        if result == rock + paper:
-            if computer_choice.count(paper) == 1:
-                winner = "Computer"
-                print("computer wins")
-            elif user_choice.count(paper) == 1:
-                winner = "User"
-                print("user wins")
-            return print(winner)
+        # While loop that runs the game until either the computer or user wins = 2
+        while self.computer_wins != 2 and self.user_wins != 2:
+            # Prints 
+            if self.computer_wins + self.user_wins == 0:
+                pass
+            else:
+                print("\nBest out of three to win the game!")
 
-    #  -- comp wins
-        if result == scissors + paper:
-            if computer_choice.count(scissors) == 1:
-                winner = "Computer"
-                print("computer wins")
-            elif user_choice.count(scissors) == 1:
-                winner = "User"
-                print("user wins")
-            return print(winner)
-        
-    # -- 
-        if result == rock + scissors:
-            if computer_choice.count(rock) == 1:
-                winner = "Computer"
-                print("computer wins")
-            elif user_choice.count(rock) == 1:
-                winner = "User"
-                print("user wins")
-            return print(winner)
+            # Calls functions to play the game 
+            rps.get_computer_choice()
+            rps.get_user_choice()
+            rps.get_winner(rps.computer_choice, rps.user_choice)
 
-        pass
-    """
-
+        # Checks whether anyone has won the game yet by accumulating 2 wins and, if so, ends the image capture
+        else:
+            if self.computer_wins == 2:
+                print("You lost this game, the Computer wins!\n")
+            elif self.user_wins == 2:
+                print("You won the game!\n")
+    # End of play()
 rps = rockpaperscissors()
 rps.play()
