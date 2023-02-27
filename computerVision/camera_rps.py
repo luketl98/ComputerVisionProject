@@ -39,15 +39,15 @@ class rockpaperscissors:
         # 
         if self.user_choice == 0:
             self.user_choice = self.rock
-            print(f"\nYou chose: Rock\n")
+            print(f"\nYou chose Rock\n")
         elif self.user_choice == 1:
             self.user_choice = self.paper
-            print(f"\nYou chose: Paper\n")
+            print(f"\nYou chose Paper\n")
         elif self.user_choice == 2:
             self.user_choice = self.scissors
-            print(f"\nYou chose: Scissors\n")
+            print(f"\nYou chose Scissors\n")
         elif self.user_choice == 3:
-            print(f"\nYou chose: Nothing, please try again!\n")
+            print(f"\nYou chose Nothing, please try again!\n")
             rps.play()
 
         return self.user_choice
@@ -100,6 +100,14 @@ class rockpaperscissors:
 
             # 3 second Countdown before the start of a round
             start_time = time.time()
+            x = 0
+            while (time.time() - start_time) < 3:
+                if round(time.time() - start_time) == 1 and x == 0: x = 1; print(1) 
+                elif round(time.time() - start_time) == 2 and x == 1: x = 2; print(2)
+                elif round(time.time() - start_time) == 3 and x == 2: x = 3; print(3)
+
+            """
+            start_time = time.time()
             one = 0
             two = 0
             three = 0
@@ -124,6 +132,7 @@ class rockpaperscissors:
             else:
                 pass
             # End of countdown
+            """
 
             # Calls functions to play the game 
             rps.get_computer_choice()
@@ -174,7 +183,8 @@ class rockpaperscissors:
                 print("Nothing")
             else:
                 pass
-
+            
+            """
             # Makes the image capture run for 5 seconds before capturing the users choice 
             if (time.time() - start_time) < 5:
                 pass
@@ -182,10 +192,13 @@ class rockpaperscissors:
                 break
             else:
                 pass
+            """
 
             # Press q to close the window
             if cv2.waitKey(1) & 0xFF == ord('q'):
                 break
+            
+            break
 
         # Return the result 
         return result
