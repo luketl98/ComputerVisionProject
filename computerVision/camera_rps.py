@@ -36,7 +36,7 @@ class rockpaperscissors:
     def get_user_choice(self): # Determines the users choice via image capture 
         # Calls get_prediction and starts image capture to determine users choice
         self.user_choice = rps.get_prediction()
-        # 
+        # assign numpy.argmax result to a class and print 
         if self.user_choice == 0:
             self.user_choice = self.rock
             print(f"\nYou chose Rock\n")
@@ -102,38 +102,11 @@ class rockpaperscissors:
             start_time = time.time()
             x = 0
             while (time.time() - start_time) < 3:
-                if round(time.time() - start_time) == 1 and x == 0: x = 1; print(1) 
+                if round(time.time() - start_time) == 1 and x == 0: x = 1; print(3) 
                 elif round(time.time() - start_time) == 2 and x == 1: x = 2; print(2)
-                elif round(time.time() - start_time) == 3 and x == 2: x = 3; print(3)
-
-            """
-            start_time = time.time()
-            one = 0
-            two = 0
-            three = 0
-            while (time.time() - start_time) < 3:
-                if one == 1:
-                    pass
-                elif round(time.time() - start_time) == 1:
-                    print(1)
-                    one = 1
-                # ----------------
-                if two == 2:
-                    pass
-                elif round(time.time() - start_time) == 2:
-                    print(2)
-                    two = 2
-                # ----------------
-                if three == 3:
-                    pass
-                elif round(time.time() - start_time) == 3:
-                    print(3)
-                    three = 3
-            else:
-                pass
-            # End of countdown
-            """
-
+                elif round(time.time() - start_time) == 3 and x == 2: x = 3; print(1)
+                elif round(time.time() - start_time) == 4 and x == 3: print(0)
+            
             # Calls functions to play the game 
             rps.get_computer_choice()
             rps.get_user_choice()
@@ -171,7 +144,8 @@ class rockpaperscissors:
 
             # Find the result using numpy
             result = np.argmax(prediction)
-                    
+
+            """        
             # Print the result
             if result == 0:
                 print("Rock")
@@ -184,7 +158,6 @@ class rockpaperscissors:
             else:
                 pass
             
-            """
             # Makes the image capture run for 5 seconds before capturing the users choice 
             if (time.time() - start_time) < 5:
                 pass
