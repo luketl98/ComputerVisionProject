@@ -164,7 +164,7 @@ class rockpaperscissors:
             elif (time.time() - start_time) > 5:
                 break
             else:
-                pass
+                pass -- 
             """
 
             # Press q to close the window
