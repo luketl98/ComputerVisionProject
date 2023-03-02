@@ -132,7 +132,7 @@ class rockpaperscissors:
 
         start_time = time.time()  # Time at beginning of program - Used for the countdown below
         
-        while True:
+        while time.time() < start_time + 3:
             ret, frame = cap.read()
             resized_frame = cv2.resize(frame, (224, 224), interpolation = cv2.INTER_AREA)
             image_np = np.array(resized_frame)
