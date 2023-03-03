@@ -104,6 +104,6 @@ class rockpaperscissors:
                 print("You lost this game, the Computer wins!\n")
             elif self.user_wins == 2:
                 print("You won the game!\n")
-    # End of play()
+    # End of play() --
 rps = rockpaperscissors()
 rps.play()
