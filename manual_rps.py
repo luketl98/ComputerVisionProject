@@ -5,14 +5,14 @@ import time
 computer_choice = []
 user_choice = []
 winner = []
-game_options = ["Rock", "Paper", "Scissors"]
 user_wins = 0
 computer_wins = 0
 
 def get_computer_choice(): # Function to get the computers choice by randomly selecting from list
     # Globals
     global computer_choice
-    global game_options
+    # List of choices for the computer
+    game_options = ["Rock", "Paper", "Scissors"]
     # randomly selects choice from list and assigns it to variable
     computer_choice = random.choice(game_options)
     # returns the computers choice
