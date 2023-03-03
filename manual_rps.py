@@ -29,15 +29,12 @@ def get_user_choice(): # Function to receive and check the users choice
     # then prints the users choice, and returns the users choice
     if user_choice == "r":
         user_choice = "Rock"
-        return user_choice
 
     elif user_choice == "p":
         user_choice = "Paper"
-        return user_choice
 
     elif user_choice == "s":
         user_choice = "Scissors"
-        return user_choice
 
     # asks the user to re-enter their input if it was not either "R", "P" or "S"
     else:
@@ -45,6 +42,7 @@ def get_user_choice(): # Function to receive and check the users choice
         get_user_choice()
     
     print(user_choice)
+    return user_choice
     
 
 def get_winner(computer_choice, user_choice): # Function to take the choices of the user and computer and return the result of the game
