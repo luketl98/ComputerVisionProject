@@ -9,7 +9,7 @@ cap = cv2.VideoCapture(0)
 data = np.ndarray(shape=(1, 224, 224, 3), dtype=np.float32)
 
 class rockpaperscissors:
-    # defines variables to the possible game choices and assigns releavent string to each one
+    # defines variables to the possible game choices and assigns releavent string to each one -
     def __init__(self):
         self.rock = "Rock"
         self.paper = "Paper"
