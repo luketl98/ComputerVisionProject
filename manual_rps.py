@@ -4,10 +4,6 @@ import time
 class rockpaperscissors:
     # defines variables to the possible game choices and assigns releavent string to each one
     def __init__(self):
-        self.rock = "Rock"
-        self.paper = "Paper"
-        self.scissors = "Scissors"
-        self.nothing = "Nothing"
         # defines variables
         self.computer_choice = []
         self.user_choice = []
@@ -32,18 +28,15 @@ class rockpaperscissors:
         # Assigns users input to either rock paper or scissors
         # then prints the users choice, and returns the users choice
         if self.user_choice == "r":
-            self.user_choice = self.rock
-            print(f"\nYou chose: {self.user_choice}\n")
+            print(f"\nYou chose Rock\n")
             return self.user_choice
 
         elif self.user_choice == "p":
-            self.user_choice = self.paper
-            print(f"\nYou chose: {self.user_choice}\n")
+            print(f"\nYou chose Paper\n")
             return self.user_choice
 
         elif self.user_choice == "s":
-            self.user_choice = self.scissors
-            print(f"\nYou chose: {self.user_choice}\n")
+            print(f"\nYou chose Scissors\n")
             return self.user_choice
 
         # asks the user to re-enter their input if it was not either "R", "P" or "S"
@@ -63,14 +56,14 @@ class rockpaperscissors:
         else:
         # If statements to figure out who won
             # -- Rock & Paper 
-            if self.computer_choice == self.rock and self.user_choice == self.paper: self.winner = "User"
-            elif self.user_choice == self.rock and self.computer_choice == self.paper: self.winner = "Computer"
+            if self.computer_choice == 'r' and self.user_choice == 'p': self.winner = "User"
+            elif self.user_choice == 'r' and self.computer_choice == 'p': self.winner = "Computer"
             # -- Paper & Scissors
-            elif self.computer_choice == self.paper and self.user_choice == self.scissors: self.winner = "User"
-            elif self.user_choice == self.paper and self.computer_choice == self.scissors: self.winner = "Computer"
+            elif self.computer_choice == 'p' and self.user_choice == 's': self.winner = "User"
+            elif self.user_choice == 'p' and self.computer_choice == 's': self.winner = "Computer"
             # -- Scissors & Rock 
-            elif self.computer_choice == self.scissors and self.user_choice == self.rock: self.winner = "User"
-            elif self.user_choice == self.scissors and self.computer_choice == self.rock: self.winner = "Computer"
+            elif self.computer_choice == 's' and self.user_choice == 'r': self.winner = "User"
+            elif self.user_choice == 's' and self.computer_choice == 'r': self.winner = "Computer"
 
         # Returns the winner 
             if self.winner == "User":
