@@ -42,6 +42,7 @@ def get_user_choice(): # Function to receive and check the users choice
         get_user_choice()
     
     print(user_choice)
+    
     return user_choice
     
 
