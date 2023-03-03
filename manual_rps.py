@@ -9,8 +9,6 @@ user_wins = 0
 computer_wins = 0
 
 def get_computer_choice(): # Function to get the computers choice by randomly selecting from list
-    # Globals
-    global computer_choice
     # List of choices for the computer
     game_options = ["Rock", "Paper", "Scissors"]
     # randomly selects choice from list and assigns it to variable
@@ -19,14 +17,13 @@ def get_computer_choice(): # Function to get the computers choice by randomly se
     return computer_choice
 
 def get_user_choice(): # Function to receive and check the users choice
-    # Globals
-    global user_choice
 
     # Asks the user to input a letter based on what choice they want to make and converts it to lowercase
     user_choice = input("\nPlease choose; Rock, Paper or Scissors by typing R, P or S, respectively: ").lower() 
 
     # Assigns users input to either rock paper or scissors
     # then prints the users choice, and returns the users choice
+    """
     if user_choice == "r":
         user_choice = "Rock"
 
@@ -39,10 +36,10 @@ def get_user_choice(): # Function to receive and check the users choice
     # asks the user to re-enter their input if it was not either "R", "P" or "S"
     else:
         print("\nPlease enter 'R' for Rock, 'P' for Paper or 'S' for Scissors")
-        get_user_choice()
+        # get_user_choice()
+    """
     
-    print(user_choice)
-    
+
     return user_choice
     
 
