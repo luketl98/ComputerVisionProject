@@ -45,9 +45,8 @@ def get_user_choice(): # Function to receive and check the users choice
 
 def get_winner(computer_choice, user_choice): # Function to take the choices of the user and computer and return the result of the game
     # Globals
-    global winner
-    global user_wins
     global computer_wins
+    global user_wins
 
 # prints the computers once the user has chosen
 
@@ -56,7 +55,7 @@ def get_winner(computer_choice, user_choice): # Function to take the choices of 
 
 # If the result is a tie 
     if computer_choice == user_choice:
-        print("\nIt is a tie!\n")
+        print("It is a tie!")
     else:
     # If statements to figure out who won
         # -- Rock & Paper 
@@ -76,9 +75,12 @@ def get_winner(computer_choice, user_choice): # Function to take the choices of 
         elif winner == "Computer":
             print("\nYou lost\n")
             computer_wins += 1
+            """
         # Prints current no. of wins by user and computer
         print(f"User wins: {user_wins}")
         print(f"Computer wins: {computer_wins}\n")
+        """
+        return user_wins, winner, computer_wins
 
 # End of get_winner()
 
