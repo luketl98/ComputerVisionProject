@@ -71,14 +71,15 @@ def get_winner(computer_choice, user_choice): # Function to take the choices of 
 
     # Returns the winner 
         if winner == "User":
-            print("\nYou win this round!\n")
+            print("\nYou won!\n")
             user_wins += 1
         elif winner == "Computer":
-            print("\nThe Computer wins this round\n")
+            print("\nYou lost\n")
             computer_wins += 1
         # Prints current no. of wins by user and computer
         print(f"User wins: {user_wins}")
         print(f"Computer wins: {computer_wins}\n")
+
 # End of get_winner()
 
 def play(): # function to call all other functions and in doing so, play the game of rock, paper, scissors
