@@ -30,7 +30,7 @@ class rockpaperscissors:
 
     def get_user_choice(self): # Determines the users choice via image capture 
         # Calls get_prediction and starts image capture to determine users choice
-        self.user_choice = rps.get_prediction()
+        self.user_choice = self.get_prediction()
         # assign numpy.argmax result to a class and print 
         if self.user_choice == 0:
             self.user_choice = self.rock
@@ -43,7 +43,7 @@ class rockpaperscissors:
             print("\nYou chose Scissors\n")
         elif self.user_choice == 3:
             print("\nYou chose Nothing, please try again!\n")
-            rps.play()
+            self.play()
 
         return self.user_choice
 
@@ -103,9 +103,9 @@ class rockpaperscissors:
                 elif round(time.time() - start_time) == 4 and x == 3: print(0)
             
             # Calls functions to play the game 
-            rps.get_computer_choice()
-            rps.get_user_choice()
-            rps.get_winner(rps.computer_choice, rps.user_choice)
+            self.get_computer_choice()
+            self.get_user_choice()
+            self.get_winner(self.computer_choice, self.user_choice)
 
         # Checks whether anyone has won the game yet by accumulating 2 wins and, if so, ends the image capture
         else:

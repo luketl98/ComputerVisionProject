@@ -49,7 +49,7 @@ class rockpaperscissors:
         # asks the user to re-enter their input if it was not either "R", "P" or "S"
         else:
             print("\nPlease enter 'R' for Rock, 'P' for Paper or 'S' for Scissors")
-            rps.get_user_choice()
+            self.get_user_choice()
         
 
     def get_winner(self, computer_choice, user_choice): # Function to take the choices of the user and computer and return the result of the game
@@ -94,9 +94,9 @@ class rockpaperscissors:
                 print("\nBest out of three to win the game!")
 
             # Calls functions to play the game 
-            rps.get_computer_choice()
-            rps.get_user_choice()
-            rps.get_winner(rps.computer_choice, rps.user_choice)
+            self.get_computer_choice()
+            self.get_user_choice()
+            self.get_winner(self.computer_choice, self.user_choice)
 
         # Checks whether anyone has won the game yet by accumulating 2 wins and, if so, ends the image capture
         else:
