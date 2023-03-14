@@ -1,7 +1,7 @@
 import random
 import time
 
-class rockpaperscissors:
+class RockPaperScissors:
     # defines variables to the possible game choices and assigns releavent string to each one
     def __init__(self):
         self.rock = "Rock"
@@ -105,5 +105,5 @@ class rockpaperscissors:
             elif self.user_wins == 2:
                 print("You won the game!\n")
     # End of play()
-rps = rockpaperscissors()
+rps = RockPaperScissors()
 rps.play()
