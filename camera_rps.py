@@ -42,9 +42,8 @@ class RockPaperScissors:
         # Calls get_prediction and starts image capture to determine users choice
         self.user_choice = self.get_prediction()
 
-        if self.user_choice == 3:
-            print("\nYou chose Nothing, please try again!\n")
-            self.play()
+        while self.user_choice == 3:
+            self.get_prediction()
 
         # assign numpy.argmax result to a class and print 
         if self.user_choice == 0:
@@ -118,15 +117,11 @@ class RockPaperScissors:
             self.get_winner(self.computer_choice, self.user_choice)
 
         # Checks whether anyone has won the game yet by accumulating 2 wins and, if so, ends the image capture
-        if self.computer_wins >= 2:
-            print("You lost this game, the Computer wins!\n") 
+        if self.computer_wins >= 2 or self.user_wins >= 2:
+            print(f"The {self.winner} won this game!\n") 
             cap.release()           # After the loop release the cap object - Ends image capture
             cv2.destroyAllWindows() # Destroy all the windows - Ends image capture
-        elif self.user_wins >= 2:
-            print("You won the game!\n")
-            cap.release()           # After the loop release the cap object - Ends image capture
-            cv2.destroyAllWindows() # Destroy all the windows - Ends image capture
-
+        
 
 rps = RockPaperScissors()
 rps.play()
