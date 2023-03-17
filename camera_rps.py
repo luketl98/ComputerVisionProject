@@ -16,6 +16,16 @@ class RockPaperScissors:
         self.user_wins = 0
         self.computer_wins = 0
 
+    def countdown(self):
+        # 3 second Countdown before the start of a round (prints each number only once)
+        start_time = time.time()
+        x = 0
+        while (time.time() - start_time) < 4:
+            if round(time.time() - start_time) == 1 and x == 0: x = 1; print(3) 
+            elif round(time.time() - start_time) == 2 and x == 1: x = 2; print(2)
+            elif round(time.time() - start_time) == 3 and x == 2: x = 3; print(1)
+            elif round(time.time() - start_time) == 4 and x == 3: x = 4; print("Go!")
+            elif x == 4: break
 
     def get_computer_choice(self): # Function to get the computers choice by randomly selecting from list
         game_options = ["Rock", "Paper", "Scissors"] # list containing possible choices
@@ -43,7 +53,7 @@ class RockPaperScissors:
         self.user_choice = self.get_prediction()
 
         while self.user_choice == 3:
-            self.get_prediction()
+            self.user_choice = self.get_prediction()
 
         # assign numpy.argmax result to a class and print 
         if self.user_choice == 0:
@@ -102,14 +112,8 @@ class RockPaperScissors:
             else:
                 print("\nBest out of three to win the game!")
 
-            # 3 second Countdown before the start of a round (prints each number only once)
-            start_time = time.time()
-            x = 0
-            while (time.time() - start_time) < 3:
-                if round(time.time() - start_time) == 1 and x == 0: x = 1; print(3) 
-                elif round(time.time() - start_time) == 2 and x == 1: x = 2; print(2)
-                elif round(time.time() - start_time) == 3 and x == 2: x = 3; print(1)
-                elif round(time.time() - start_time) == 4 and x == 3: print(0)
+            # Starts coundown
+            self.countdown()
             
             # Calls functions to play the game 
             self.get_computer_choice()
